@@ -10,11 +10,15 @@ const perguntas = [
         alternativas: [
             {
                 texto: "Os logaritmos são usados para calcular a taxa de natalidade direta.",
-                afirmacao: "Achou assustador pensar que a matemática está envolvida em tudo ao seu redor. "
+                afirmacao: [
+                "Em 1798, no livro An Essay on the Principle of Population, que teve seis edições, Thomas Malthus (1766-1864), um clérigo e erudito inglês influente nos campos da economia política e da demografia, escreveu:"
+                ]
             },
             {
                 texto: "Os logaritmos ajudam a modelar o crescimento exponencial da população.",
-                afirmacao: "Será que os logaritmos são importantes?"
+                afirmacao: [
+                    "“A população, quando não controlada, aumenta em progressão geométrica. A subsistência aumenta apenas em progressão aritmética. Um pequeno conhecimento dos números mostrará a imensidão do primeiro poder em comparação com o segundo.“"
+                ]
             }
         ]
     },
@@ -23,11 +27,13 @@ const perguntas = [
         alternativas: [
             {
                 texto: "Os logaritmos são usados para calcular a magnitude aparente das estrelas,comparando seu brilho com uma estrela de referência.",
-                afirmacao: "Sentiu-se o Jovem Sheldon? Com essa pergunta sobre astronomia."
+                afirmacao: [
+                
+                ]
             },
             {
                 texto: "Os logaritmos são usados para medir a distância entre estrelas",
-                afirmacao: "Foi atrás de respostas né,calma você consegue!"
+                afirmacao: ""
             }
         ]
     },
@@ -36,11 +42,11 @@ const perguntas = [
         alternativas: [
             {
                 texto: "Os logaritmos não têm aplicação em cálculos financeiros",
-                afirmacao: "Notou também que muitas pessoas não sabem o verdadeiro valor dos logaritmos."
+                afirmacao: ""
             },
             {
                 texto: "Os logaritmos são usados para calcular o número de períodos necessários para um investimento crescer a um valor específico",
-                afirmacao: "Achou que era muito mais fácil procurar por respostas utilizando alguns meios mais tradicionais mesmo que levasse mais tempo."
+                afirmacao: ""
             }
         ]
     },
@@ -72,7 +78,7 @@ function mostraAlternativas(){
 }
 
 function respostaSelecionada(opcaoSelecionada) {
-    const afirmacoes = aleatorio(opcaoSelecionada.afirmacao);
+    const afirmacoes = opcaoSelecionada.afirmacao;
     historiaFinal += afirmacoes + " ";
     atual++;
     mostraPergunta();
@@ -82,11 +88,6 @@ function mostraResultado() {
     caixaPerguntas.textContent = "A importância dessas perguntas foi mostrar aos alunos que os logaritmos têm relevância na vida real. Através de exemplos práticos e curiosidades, eles puderam entender como esse conceito matemático está presente em diversos aspectos do nosso cotidiano e em várias áreas de conhecimento.";
     textoResultado.textContent = historiaFinal;
     caixaAlternativas.textContent = "";
-}
-
-function aleatorio(lista) {
-    const posicao = Math.floor(Math.random()* lista.length);
-    return lista[posicao];
 }
 
 mostraPergunta();
